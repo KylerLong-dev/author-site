@@ -1,0 +1,284 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Design Tokens - Earthy Author Portfolio Theme */
+@theme inline {
+  /* Core color tokens */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  /* Typography */
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-serif: Merriweather, ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  
+  /* Earthy Brand Colors - Coffee/Brown scale */
+  --color-coffee-50: oklch(0.97 0.008 52);
+  --color-coffee-100: oklch(0.94 0.016 52);
+  --color-coffee-200: oklch(0.88 0.032 52);
+  --color-coffee-300: oklch(0.82 0.048 52);
+  --color-coffee-400: oklch(0.75 0.064 52);
+  --color-coffee-500: oklch(0.65 0.08 52);
+  --color-coffee-600: oklch(0.55 0.096 52);
+  --color-coffee-700: oklch(0.45 0.112 52);
+  --color-coffee-800: oklch(0.35 0.128 52);
+  --color-coffee-900: oklch(0.25 0.144 52);
+  --color-coffee-950: oklch(0.15 0.16 52);
+  
+  /* Sage Green - Secondary colors */
+  --color-sage-50: oklch(0.97 0.008 140);
+  --color-sage-100: oklch(0.94 0.016 140);
+  --color-sage-200: oklch(0.88 0.032 140);
+  --color-sage-300: oklch(0.82 0.048 140);
+  --color-sage-400: oklch(0.75 0.064 140);
+  --color-sage-500: oklch(0.65 0.08 140);
+  --color-sage-600: oklch(0.55 0.096 140);
+  --color-sage-700: oklch(0.45 0.112 140);
+  --color-sage-800: oklch(0.35 0.128 140);
+  --color-sage-900: oklch(0.25 0.144 140);
+  
+  /* Amber/Honey - Accent colors */
+  --color-amber-50: oklch(0.97 0.008 65);
+  --color-amber-100: oklch(0.94 0.016 65);
+  --color-amber-200: oklch(0.88 0.032 65);
+  --color-amber-300: oklch(0.82 0.048 65);
+  --color-amber-400: oklch(0.75 0.064 65);
+  --color-amber-500: oklch(0.65 0.08 65);
+  --color-amber-600: oklch(0.55 0.096 65);
+  --color-amber-700: oklch(0.45 0.112 65);
+  --color-amber-800: oklch(0.35 0.128 65);
+  --color-amber-900: oklch(0.25 0.144 65);
+  
+  /* Beige/Cream - Neutral colors */
+  --color-cream-50: oklch(0.98 0.005 45);
+  --color-cream-100: oklch(0.95 0.01 45);
+  --color-cream-200: oklch(0.92 0.015 45);
+  --color-cream-300: oklch(0.88 0.02 45);
+  --color-cream-400: oklch(0.84 0.025 45);
+  --color-cream-500: oklch(0.8 0.03 45);
+  --color-cream-600: oklch(0.75 0.035 45);
+  --color-cream-700: oklch(0.65 0.04 45);
+  --color-cream-800: oklch(0.55 0.045 45);
+  --color-cream-900: oklch(0.45 0.05 45);
+  
+  /* Component design tokens */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  
+  /* Border radius tokens */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Typography scale tokens */
+  --text-display-2xl: 3.75rem;
+  --text-display-xl: 3rem;
+  --text-display-lg: 2.5rem;
+  --text-display-md: 2rem;
+  --text-display-sm: 1.75rem;
+  --text-xl: 1.5rem;
+  --text-lg: 1.25rem;
+  --text-md: 1rem;
+  --text-sm: 0.875rem;
+  --text-xs: 0.75rem;
+  
+  /* Spacing tokens */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+  --spacing-3xl: 6rem;
+}
+
+:root {
+  --radius: 0.75rem;
+  
+  /* Light theme - Earthy palette */
+  --background: var(--color-cream-50);
+  --foreground: var(--color-coffee-900);
+  
+  --card: var(--color-cream-100);
+  --card-foreground: var(--color-coffee-800);
+  
+  --popover: var(--color-cream-100);
+  --popover-foreground: var(--color-coffee-800);
+  
+  --primary: var(--color-coffee-700);
+  --primary-foreground: var(--color-cream-50);
+  
+  --secondary: var(--color-sage-200);
+  --secondary-foreground: var(--color-coffee-800);
+  
+  --muted: var(--color-cream-200);
+  --muted-foreground: var(--color-coffee-600);
+  
+  --accent: var(--color-amber-200);
+  --accent-foreground: var(--color-coffee-800);
+  
+  --destructive: oklch(0.577 0.245 27.325);
+  
+  --border: var(--color-cream-300);
+  --input: var(--color-cream-200);
+  --ring: var(--color-coffee-500);
+}
+
+.dark {
+  --background: var(--color-coffee-950);
+  --foreground: var(--color-cream-100);
+  
+  --card: var(--color-coffee-900);
+  --card-foreground: var(--color-cream-200);
+  
+  --popover: var(--color-coffee-900);
+  --popover-foreground: var(--color-cream-200);
+  
+  --primary: var(--color-coffee-400);
+  --primary-foreground: var(--color-coffee-950);
+  
+  --secondary: var(--color-sage-800);
+  --secondary-foreground: var(--color-cream-200);
+  
+  --muted: var(--color-coffee-800);
+  --muted-foreground: var(--color-cream-600);
+  
+  --accent: var(--color-amber-700);
+  --accent-foreground: var(--color-cream-200);
+  
+  --destructive: oklch(0.704 0.191 22.216);
+  
+  --border: var(--color-coffee-700);
+  --input: var(--color-coffee-800);
+  --ring: var(--color-coffee-400);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans;
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-coffee-800 dark:text-cream-200;
+    line-height: 1.3;
+  }
+}
+
+/* Component utility classes */
+@layer components {
+  /* Button variants */
+  .btn-primary {
+    @apply bg-coffee-700 text-cream-50 hover:bg-coffee-800 px-6 py-3 rounded-lg font-medium transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-sage-200 text-coffee-800 hover:bg-sage-300 px-6 py-3 rounded-lg font-medium transition-colors;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-coffee-700 text-coffee-700 hover:bg-coffee-700 hover:text-cream-50 px-6 py-3 rounded-lg font-medium transition-colors;
+  }
+  
+  /* Card system */
+  .card {
+    @apply bg-card text-card-foreground rounded-xl border border-border shadow-sm;
+  }
+  
+  .card-header {
+    @apply p-6 pb-4;
+  }
+  
+  .card-body {
+    @apply px-6 pb-4;
+  }
+  
+  .card-footer {
+    @apply px-6 py-4 border-t border-border;
+  }
+  
+  /* Form inputs */
+  .input {
+    @apply bg-input border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors;
+  }
+  
+  /* Layout utilities */
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20;
+  }
+  
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  /* Typography utilities */
+  .text-display-2xl {
+    @apply text-[var(--text-display-2xl)] font-serif font-bold;
+  }
+  
+  .text-display-xl {
+    @apply text-[var(--text-display-xl)] font-serif font-bold;
+  }
+  
+  .text-display-lg {
+    @apply text-[var(--text-display-lg)] font-serif font-bold;
+  }
+  
+  .text-display-md {
+    @apply text-[var(--text-display-md)] font-serif font-bold;
+  }
+  
+  .text-display-sm {
+    @apply text-[var(--text-display-sm)] font-serif font-bold;
+  }
+  
+  /* Reading content styles */
+  .prose {
+    @apply text-coffee-800 dark:text-cream-200 leading-relaxed;
+  }
+  
+  .prose h1 {
+    @apply text-display-lg text-coffee-900 dark:text-cream-100 mb-6;
+  }
+  
+  .prose h2 {
+    @apply text-display-md text-coffee-800 dark:text-cream-200 mb-4 mt-8;
+  }
+  
+  .prose h3 {
+    @apply text-display-sm text-coffee-700 dark:text-cream-300 mb-3 mt-6;
+  }
+  
+  .prose p {
+    @apply mb-4 text-lg leading-relaxed;
+  }
+  
+  .prose blockquote {
+    @apply border-l-4 border-amber-400 pl-6 my-6 italic text-coffee-700 dark:text-cream-300;
+  }
+  
+  .prose a {
+    @apply text-coffee-700 dark:text-amber-400 underline hover:text-coffee-900 dark:hover:text-amber-300 transition-colors;
+  }
+}
